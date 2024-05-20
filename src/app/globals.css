@@ -12,7 +12,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 38, 38, 38;
-    --background-end-rgb: 38, 38, 38;
+    --background-end-rgb: 72, 72, 72;
   }
 }
 
@@ -26,8 +26,16 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.img-bg {
+  background-color: var(--background-start-rgb);
+  background-image: url('/bg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
