@@ -7,12 +7,12 @@ export default function Navegation() {
         <>
             <Navbar>
                 <NavbarBrand>
-                    <Link color='foreground' href='#'><Image src={'/logo.png'} width={100} alt='Home'></Image></Link>
+                    <Link color='foreground' href='/'><Image src={'/logo.png'} width={100} alt='Home'></Image></Link>
                     
                 </NavbarBrand>
                 <NavbarContent>
                     <NavbarItem>
-                        <Link color='foreground' href='#'>Sobre</Link>
+                        <Link color='foreground' href='/sobre'>Sobre</Link>
                     </NavbarItem>
                     <NavbarItem>
                         <Link color='foreground' href='#'>Funcionamento</Link>
