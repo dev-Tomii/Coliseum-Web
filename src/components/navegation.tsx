@@ -15,7 +15,7 @@ export default function Navegation() {
                         <Link color='foreground' href='/sobre'>Sobre</Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link color='foreground' href='#'>Funcionamento</Link>
+                        <Link color='foreground' href='/funcionamento'>Funcionamento</Link>
                     </NavbarItem>
                     <NavbarItem>
                         <Link color='foreground' href='#'>Power Ranking</Link>
