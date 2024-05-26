@@ -16,13 +16,15 @@ export default function ClanCard({
     clanlogo,
     clanddesc,
     clanleader,
-    clancoleader
+    clancoleader,
+    ct
 }: {
     clanname: string;
     clanlogo: string;
     clanddesc: string;
     clanleader: string;
     clancoleader: string;
+    ct: string[];
 }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -32,9 +34,9 @@ export default function ClanCard({
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                     <p className="text-large uppercase font-bold">{clanname}</p>
                     <small className="text-default-500 flex flex-row">
-                        <PiMedalFill color="gold"></PiMedalFill>0⠀
-                        <PiMedalFill color="silver"></PiMedalFill>0⠀
-                        <PiMedalFill color="chocolate"></PiMedalFill>0⠀
+                        <PiMedalFill color="gold"></PiMedalFill>{ct[0]}⠀
+                        <PiMedalFill color="silver"></PiMedalFill>{ct[1]}⠀
+                        <PiMedalFill color="chocolate"></PiMedalFill>{ct[2]}⠀
                     </small>
                 </CardHeader>
                 <CardBody className="overflow-visible py-2">

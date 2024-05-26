@@ -10,7 +10,7 @@ export default function SeasonClans() {
         <div className='box'>
             <h1 className='text-6xl my-6 border-4 p-4 mb-7'>Clãs da Season</h1>
             <div className="cards flex-wrap">
-                {data.map(i => (<><ClanCard clanname={i['clan']} clanlogo={`${i['clan']}`} clanddesc={i['description']} clanleader={i['leader']} clancoleader={i['coleader']}></ClanCard></>))}
+                {data.map(i => (<><ClanCard clanname={i['clan']} clanlogo={`${i['clan']}`} clanddesc={i['description']} clanleader={i['leader']} clancoleader={i['coleader']} ct={i['CT']}></ClanCard></>))}
             </div>
         </div>
     );
