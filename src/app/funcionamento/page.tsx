@@ -21,6 +21,7 @@ export default function Funcionamento() {
                             • Ter mais de 400 partidas já jogadas<br/>
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[1]))}>{titulos[1]}</div>
@@ -33,6 +34,7 @@ export default function Funcionamento() {
                             Você pode ter suas discordâncias e pode falar comigo sobre isso. Mas se vc acredita que tem custo errado, isso vai se mostrar naturalmente nas CBs jogadas, e seu custo vai ser alterado se necessário. Mas não te precipita, já vimos mtos casos de jogador dizendo que &quot;ganha de todo mundo do custo dele&quot;, mas na hora da CB não conseguiu.
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[2]))}>{titulos[2]}</div>
@@ -46,6 +48,7 @@ export default function Funcionamento() {
                             • Stock Crew Battle: 1v1 entre equipes com rotação por Stock, ou seja, troca de jogador depois que um jogador perder 1 stock. Nesse modo, a faixa de custo dos jogadores é parecida. Só jogadores dentro dessa faixa de custo podem fazer parte do elenco
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[3]))}>{titulos[3]}</div>
@@ -60,6 +63,7 @@ export default function Funcionamento() {
                             Os clãs precisam ser bem diversificados em preços de jogador. Não adianta nada colocar os mais caros possível no clã porque assim não vão conseguir jogar, o saldo em cada CB vai ser sempre extrapolado.
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[4]))}>{titulos[4]}</div>
@@ -73,12 +77,13 @@ export default function Funcionamento() {
                             • As CBs acontecem ao longo de uma Season, que normalmente dura 10 ou mais semanas. O clã com a maior pontuação na tabela após a Season é o vencedor<br/>
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[5]))}>{titulos[5]}</div>
                         <div className="description">
                             <p>
-                            Caso o seu clã fique muito abaixo na tabela em comparação ao primeiro clã, você vai entrar no que chamamos de Zona de Rebaixamento(ZR).<br/><br/>
+                            Caso o seu clã fique muito abaixo na tabela em comparação ao primeiro clã, você vai entrar no que chamamos de Zona de Rebaixamento(ZR)<br/><br/>
                             Funciona da seguinte forma:<br/><br/>
                             • Você entra na ZR se tiver 8 pontos de diferença com relação ao primeiro lugar. Você sai da ZR se tiver 6 pontos de diferença com relação ao primeiro lugar<br/>
                             • Cada vez que você entrar na ZR será contabilizada, pra ficar na tabela junto aos DQs. Isso vai também ser usado como critério de desempate, depois dos DQs<br/>
@@ -87,76 +92,95 @@ export default function Funcionamento() {
                             • Numa situação em que o clã top1 ganhe um ponto e o seu clã fique com 8 pontos de diferença a partir desse instante, seu clã ainda tem o direito de jogar a próxima CB agendada antes de entrar na ZR. Caso perca, aí sim, vai pra ZR
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[6]))}>{titulos[6]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            • Número de DQs. O clã com menos DQ fica na frente do que tem mais DQs<br/>
+                            • Histórico dos 2 clãs empatados. Nas CBs q houveram entre os 2 clãs empatados, quem teve mais vitórias desempata e vence<br/>
+                            • Uma CB de desempate entre os dois clãs, com regras definidas no momento da necessidade dessa CB<br/>
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[7]))}>{titulos[7]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            DQ(Disqualified) é quando seu clã ou um jogador dele é desqualificado por ter sido colocado no elenco e não veio jogar a CB<br/>
+                            Se faltar 1 integrante do seu time e não tiver reserva pra substituir ele, não vai ser DQ imediato para o clã. O seu clã vai poder jogar com 1 a menos, MAS vai ter que usar o elenco titular. Pode usar reserva? SÓ se o custo do reserva e do jogador substituído forem iguais ou menor. Isso faz com que haja uma desvantagem como punição pela ausência do jogador.<br/><br/>
+                            Outro detalhe: o jogador que deu DQ no elenco não poderá ser escalado por 1 semana.<br/><br/>
+                            Além disso, numa situação de DQ de um clã, jogadores que compareceram para jogar não contam como usados. Portanto, se tiver alguma regra do tipo &quot;jogadores só podem jogar 1 vez nessa semana&quot;, esses jogadores podem ser escalados de novo<br/><br/>
+                            Normalmente, eu defino um período de tempo para que todos os clãs joguem contra todos os outros clãs. Na Season 0, em 1 semana isso já acontecia. Na Season 1, variou de 1 a 3 semanas. Caso um clã tenha 80% de DQ nesse período, o clã será removido<br/>
+                            Jogadores que derem DQ muitas vezes serão automaticamente retirados do mural
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[8]))}>{titulos[8]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            Nós não focamos muito em premiações aqui, por ser um projeto mais voltado pra diversão da galera e trazendo uma competição saudável. Seria interessante trazer premiações boas em dinheiro ou mais coisas, mas a gente também sabe que isso traz mais gente mal-intencionada, e a gente não tem muita paciência com esse tipo de coisa aqui. Honestamente, as punições aqui podem ser bem duras(seção de punição pra vc ler mais abaixo), então anda na linha.<br/><br/>
+                            O canal de ⁠premiação no nosso Discord tem todas as premiações, que normalmente se resume mais nas &quot;infantocoins&quot;. Essas moedinhas são da minha live, para usar em uma loja pode acessar <Link href='https://streamelements.com/yaksath/store' className='text-amber-400 font-bold' isExternal>aqui!</Link><br/><br/>
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[9]))}>{titulos[9]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            Normalmente, em CBs, temos regras que restringem jogadores ou personagens de serem usados. Como nós seguimos o padrão de regras de torneios oficiais, jogadores tem direito a se matar nos primeiros 10 segundos de jogo para solicitar rematch(mas aqui pode ser até uns 30 segundos que tá de boa)<br/><br/>
+                            Entretanto, caso essa rematch seja solicitada dessa forma, os jogadores do clã que pediu a rematch devem manter os mesmos legends, a menos que alguma regra proíba aquele legend de ser usado. Nesse caso, o jogador pode escolher outro legend, mas vai ter que revelar qual legend vai usar antes de iniciar a rematch. O mapa também tem que ser o mesmo. Nenhum jogador pode ser trocado numa rematch<br/><br/>
+                            Os jogadores do outro clã, que não pediu a rematch, podem trocar de personagem proporcionalmente a quantos jogadores irão trocar. Por exemplo, se todos os jogadores do clã que pediu a rematch manterem os mesmos picks, o outro clã também terá que manter os mesmos picks. Se 1 trocar o legend(porque alguma regra proíbe o legend dele), 1 jogador do outro clã também poderá trocar, à escolha do próprio clã<br/><br/>
+                            Caso algum jogador do clã adversário desconecte no meio da partida e você queira dar uma rematch como FP(Fair Play), os jogadores do seu clã devem se matar para rolar a rematch. Mas perceba que FP não tá nas regras e isso vai da escolha de cada clã. O FP também se limita à organização do projeto, então um FP que cause uma demora muito grande não pode ser feito
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[10]))}>{titulos[10]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            Situações que podem causar punições:<br/><br/>
+                            • Comportamentais, como discriminação, desrespeito, ofensas, dentre outros<br/>
+                            • Trapaças e fraudes<br/>
+                            • Atrapalhar propositalmente o andamento do Coliseu. Isso inclui passar a sala da CB pra gente de fora do Coliseu<br/><br/>
+                            Mas também tem um motivo possível adicional: jogadores que estão no Coliseu e saem do server de repente, ou somem de repente por semanas/meses, sem nenhum aviso ou justificativa nos dias seguintes a mim ou ao seu líder de clã. Isso traz prejuízo aos clãs envolvidos, que contratam jogadores confiando na presença deles, enquanto esses jogadores não se importam com esse prejuízo. Situações como essa podem ocasionar ban por 1 season inteira a partir do momento que o jogador descobrir que foi banido(ou vir falar comigo sobre isso).<br/><br/>
+                            A gente se esforça bastante pra esse projeto ser bacana pra todo mundo, e não tenho muito pavio pra aturar situações de trapaça com gente jogando em conta de outros, ou se fazendo passar por outro. Isso já foi descoberto aqui antes, mais de uma vez, e a punição pode vir de forma sutil de um jeito que possa atrapalhar o clã todo, ou se tiver provas bem claras da trapaça, é um banimento permanente e que dificilmente vou reconsiderar, mesmo que se passem ANOS desde o ocorrido. Zero tolerância com trapaças
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[11]))}>{titulos[11]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            Fazemos lives de todas as CBs e CTs em <Link href='https://www.twitch.tv/yaksath' className='text-amber-400 font-bold' isExternal>Twitch</Link><br/>
+                            Caso vc queira assistir, veja por lá. Não entre na sala das partidas pra assistir, a live existe exatamente pra isso. Afinal, se for pra assistir na sala, não precisa de live, todos entram na sala e vêem por lá e pronto. Então, por favor, dá esse valor pro trampo!<br/><br/>
+                            Andamos também fazendo vídeos eventuais no meu <Link href='https://www.youtube.com/@yaksath' className='text-amber-400 font-bold' isExternal>YouTube</Link> sobre o Coliseu que são bem interessantes de assistir!<br/>
+                            Você também pode ver algumas atualizações no meu <Link href='https://twitter.com/ThYaksa' className='text-amber-400 font-bold' isExternal>Twitter</Link>
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         <div className="item mt-3 mb-5">
                         <div className="title text-2xl uppercase font-bold text-amber-400 " id={String(titulos.indexOf(titulos[12]))}>{titulos[12]}</div>
                         <div className="description">
                             <p>
-                            • Ter nível 35 na conta do Brawlhalla<br/>
-                            • Ter 40h de jogo ativo(não só com o jogo aberto, 40h em partidas mesmo)<br/>
-                            • Ter mais de 400 partidas já jogadas<br/>
+                            • Períodos de recrutamento<br/><br/>
+                            Você só pode entrar no Coliseu e entrar em algum clã durante um período de recrutamento. Esses períodos são alguns dias em que novos jogadores podem entrar, jogadores podem trocar de clã, e clãs podem contratar novos jogadores. Você primeiro precisa entrar no mural-de-jogadores , e de lá você já pode ser visto pelos clãs e recrutado. Membros do clã vão te enviar mensagem na DM pra te recrutar<br/>
+                            Eu sempre aviso na canal do discord de anúncios e no Twitter também quando um período de recrutamento começa. Fica atento por lá<br/><br/>
+                            • Quero entrar em um clã, o que faço?<br/><br/>
+                            Primeiramente, é preciso estarmos em um período de recrutamento, como expliquei. Se estivermos, mande DM pra mim que te colocarei lá no ⁠mural-de-jogadores. De lá, você poderá ser recrutado por outros clãs já existentes. Você também pode ir em ⁠tabela ver quem são os líderes ou recrutadores de cada clã, pra tentar falar com eles e pedir pra entrar em algum clã<br/><br/>
+                            •Quero criar um clã, o que faço?<br/><br/>
+                            Infelizmente, só pessoas com pelo menos um pouco de confiança minha poderão criar um clã. Tivemos problemas de jogadores mal-intencionados no passado, e tivemos problemas de clãs entrando sem saber direito como o sistema funciona, criando clãs que acabaram naturalmente se dissolvendo sozinhos, e atrapalhando o andamento da Season dessa forma. Além disso, é obrigatório já ter sido membro de um clã antes de poder criar um. Clãs novos só podem ser criados antes do início de uma Season
                             </p>
                         </div>
+                        <Divider className='mt-4'></Divider>
                         </div>
                         
                     </div>
