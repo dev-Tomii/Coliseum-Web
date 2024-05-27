@@ -1,11 +1,14 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './seasonClans.css';
 import ClanCard from './clancard'
 
 export default function SeasonClans() {
     const [data,setData] = useState([]);
-    fetch('http://api.npoint.io/6488fb58f82a76e31664').then(res => res.json()).then(res => setData(res));
+    const fetchData = () => {fetch('https://api.npoint.io/6488fb58f82a76e31664').then(res => res.json()).then(res => setData(res)).then(res => console.log(res))}
+    useEffect(() => {
+        fetchData()
+    }, []);
     return (
         <div className='box'>
             <h1 className='text-6xl my-6 border-4 p-4 mb-7'>Clãs da Season</h1>
