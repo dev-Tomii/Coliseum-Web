@@ -24,7 +24,7 @@ export default function Navegation() {
                         <Link color='foreground' href='/tabela'>Tabela</Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link color='foreground' href='#'>Jogadores</Link>
+                        <Link color='foreground' href='/jogadores'>Jogadores</Link>
                     </NavbarItem>
                     <NavbarItem>
                         <Link color='foreground' href='#'>Gerador de Cartas</Link>
