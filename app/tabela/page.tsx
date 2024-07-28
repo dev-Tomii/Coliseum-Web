@@ -1,14 +1,14 @@
-import Table_Season from "../components/tableseason"
+import TableSeason from "../components/tableseason"
 
 export default function Tabela() {
     return (
         <>
             <div className="container py-5 mx-auto">
-                <Table_Season season={"season4"}></Table_Season>
-                <Table_Season season={"season3"}></Table_Season>
-                <Table_Season season={"season2"}></Table_Season>
-                <Table_Season season={"season1"}></Table_Season>
-                <Table_Season season={"season0"}></Table_Season>
+                <TableSeason season={"season4"}></TableSeason>
+                <TableSeason season={"season3"}></TableSeason>
+                <TableSeason season={"season2"}></TableSeason>
+                <TableSeason season={"season1"}></TableSeason>
+                <TableSeason season={"season0"}></TableSeason>
             </div>
         </>
     );

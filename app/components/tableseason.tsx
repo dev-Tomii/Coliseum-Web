@@ -17,7 +17,7 @@ interface SeasonData {
     season4: any[];
 }
 
-export default function Table_Season({ season }: { season: string }) {
+export default function TableSeason({ season }: { season: string }) {
     const [data, setData] = useState<SeasonData>({
         season0: [],
         season1: [],
