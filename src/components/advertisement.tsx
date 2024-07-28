@@ -11,7 +11,7 @@ export default function Advertisement() {
           className="img py-4"
           isBlurred
           isZoomed
-          src="/news.png"
+          src="/news.jpeg"
           alt="News"
         ></Image>
         </Link>

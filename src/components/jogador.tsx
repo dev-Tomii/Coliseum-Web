@@ -53,10 +53,6 @@ export default function Jogador() {
     const [legendFilter, setLegendFilter] = useState("");
     const [rankFilter, setRankFilter] = useState("");
 
-    const porPagina = 18;
-    const indiceInicio = (currentPage - 1) * porPagina;
-    const indiceFin = indiceInicio + porPagina;
-
     const colorVariants = {
         Vasco: "text-gray-400",
         "Bichos do Mato": "text-green-500",
@@ -87,19 +83,6 @@ export default function Jogador() {
         );
     };
 
-    const maxPag = () => {
-        const long = players.filter(filtrarJogadores).length;
-        if (long == 0) {
-            setMaxPage(Math.trunc(players.length / porPagina));
-        } else if (long % porPagina == 0) {
-            setMaxPage(long / porPagina);
-        } else {
-            setMaxPage(Math.trunc(long / porPagina) + 1);
-        }
-
-        console.log(long);
-    };
-
     useEffect(() => {
         fetch("https://api.npoint.io/a61cbe38560a9ac5d278")
             .then((res) => res.json())
@@ -121,14 +104,14 @@ export default function Jogador() {
                     label="Busque um jogador"
                     className="mx-2 mb-5"
                     startContent={<FaSearch />}
-                    onChange={maxPag}
+                    /* onChange={maxPag} */
                 />
                 <Autocomplete
                     value={clanFilter}
                     onInputChange={setClanFilter}
                     className="mx-2 mb-5"
                     label="Selecione um clã"
-                    onSelectionChange={maxPag}
+                    /* onSelectionChange={maxPag} */
                 >
                     {clans.map((clan, index) => (
                         <AutocompleteItem key={index} value={clan["clan"]}>
@@ -141,7 +124,7 @@ export default function Jogador() {
                     onInputChange={setCostFilter}
                     className="mx-2 mb-5"
                     label="Selecione um custo"
-                    onSelectionChange={maxPag}
+                    /* onSelectionChange={maxPag} */
                 >
                     {custos.reverse().map((custo, index) => (
                         <AutocompleteItem key={index} value={custo}>
@@ -154,7 +137,7 @@ export default function Jogador() {
                     label="Selecione uma hierarquia"
                     value={rankFilter}
                     onInputChange={setRankFilter}
-                    onSelectionChange={maxPag}
+                    /* onSelectionChange={maxPag} */
                 >
                     {hierarquias.reverse().map((item, index) => (
                         <AutocompleteItem key={index} value={item}>
@@ -167,7 +150,7 @@ export default function Jogador() {
                     label="Selecione uma lenda"
                     value={legendFilter}
                     onInputChange={setLegendFilter}
-                    onSelectionChange={maxPag}
+                    /* onSelectionChange={maxPag} */
                 >
                     {lendas.map((item, index) => (
                         <AutocompleteItem
@@ -185,7 +168,7 @@ export default function Jogador() {
                     players.length > 0 &&
                     players
                         .filter(filtrarJogadores)
-                        .slice(indiceInicio, indiceFin)
+                        /* .slice(indiceInicio, indiceFin) */
                         .map((player, index) => (
                             <Card
                                 key={index}
@@ -224,14 +207,14 @@ export default function Jogador() {
                             </Card>
                         ))}
             </div>
-            <Pagination
+            {/* <Pagination
                 className="flex flex-auto justify-center mt-5"
                 total={maxPage}
                 initialPage={1}
                 color="warning"
                 page={currentPage}
                 onChange={setCurrentPage}
-            />
+            /> */}
         </div>
     );
 }
