@@ -43,7 +43,7 @@ export default function ClanCard({
                     <Image
                         alt="Logo"
                         className="object-cover rounded"
-                        src={`/Clans/${clanlogo}.png`}
+                        src={`/Clans/${clanlogo.toLowerCase()}.png`}
                         width={270}
                         isBlurred
                     />
