@@ -1,4 +1,4 @@
-import Jogador from "@/components/jogador";
+import Jogador from "../components/jogador";
 
 export default function Jogadores() {
     return (
