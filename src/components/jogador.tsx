@@ -64,6 +64,8 @@ export default function Jogador() {
         "Complexo do Corinthians": "text-zinc-200",
         "Strawberry Tea": "text-purple-500",
         "Ranked Beasts": "text-orange-500",
+        "Olimpo": "text-orange-200",
+        "Blackwater WWC": "text-brown-500"
     };
 
     const hierarquias = ["Membro", "Lider"];

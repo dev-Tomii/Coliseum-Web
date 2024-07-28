@@ -27,7 +27,7 @@ export default function Navegation() {
                         <Link color='foreground' href='/jogadores'>Jogadores</Link>
                     </NavbarItem>
                     <NavbarItem>
-                        <Link color='foreground' href='#'>Gerador de Cartas</Link>
+                        <Link color='foreground' href='/gerador'>Gerador de Cartas</Link>
                     </NavbarItem>
                 </NavbarContent>
             </Navbar>
