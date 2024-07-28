@@ -34,7 +34,9 @@ export default function Gerador() {
     const [custo, setCusto] = useState(0);
 
     const [src1, setSrc1] = useState("/Cards/bgs/base.png");
-    const [src2, setSrc2] = useState("/Cards/frames/green.png");
+    const [src2, setSrc2] = useState("/Cards/frames/base.png");
+    const [src3, setSrc3] = useState("/Cards/grad/base.png");
+    const [src4, setSrc4] = useState("/Cards/legends/base.png");
 
     const getCost = (name: string) => {
         for (let item in data) {
@@ -59,7 +61,18 @@ export default function Gerador() {
         setName(name);
         setCla(getClan(name));
         setSrc1(`/Cards/bgs/${colorVariants[clan]}.png`);
-        /*setSrc2(`/Cards/frames/${colorVariants[clan]}.png`)*/
+        setSrc2(`/Cards/frames/${colorVariants[clan]}.png`);
+        setSrc3(`/Cards/grad/${colorVariants[clan]}.png`);
+    };
+
+    const mudarLenda = (legend: any) => {
+        if (legend != "") {
+            console.log(legend);
+            setLenda(legend);
+            setSrc4(`/Cards/legends/${legend}.png`);
+        } else {
+            setSrc4(`/Cards/legends/base.png`);
+        }
     };
 
     useEffect(() => {
@@ -68,13 +81,16 @@ export default function Gerador() {
             .then((res) => setData(res.jogadores));
         fetch("https://api.npoint.io/a61cbe38560a9ac5d278")
             .then((res) => res.json())
-            .then((res) => setLendas(res));
+            .then((res) => setLendas(res))
+            
     }, []);
     return (
         <div className="flex mx-auto justify-center items-center min-h-[100vh] flex-col">
-            <div className="flex items-center pt-10 my-10 relative">
-                <img className="absolute rounded-3xl" src={src1} alt="bg"></img>
-                <img className="relative" src={src2} alt="frame"></img>
+            <div className="flex items-center mb-5 relative shadow-2xl">
+                <img className="absolute" src={src1} alt="bg"></img>
+                <img className="absolute" src={src4} alt="legend"></img>
+                <img className="absolute" src={src3} alt="grad"></img>
+                <img className="relative h-[50vh]" src={src2} alt="frame"></img>
             </div>
 
             <Card className="flex items-center w-[30vw] p-3">
@@ -99,10 +115,10 @@ export default function Gerador() {
                         defaultItems={lendas}
                         placeholder="Selecione uma Lenda"
                         className="w-[40%] m-2"
-                        onInputChange={setLenda}
+                        onInputChange={mudarLenda}
                     >
                         {(item) => (
-                            <AutocompleteItem key={lendas.indexOf(item)}>
+                            <AutocompleteItem className="capitalize" key={lendas.indexOf(item)}>
                                 {item["legend_name_key"]}
                             </AutocompleteItem>
                         )}
