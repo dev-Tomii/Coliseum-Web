@@ -37,6 +37,7 @@ export default function Gerador() {
     const [src2, setSrc2] = useState("/Cards/frames/base.png");
     const [src3, setSrc3] = useState("/Cards/grad/base.png");
     const [src4, setSrc4] = useState("/Cards/legends/base.png");
+    const [src5, setSrc5] = useState("/Cards/stars/120.png");
 
     const getCost = (name: string) => {
         for (let item in data) {
@@ -63,6 +64,7 @@ export default function Gerador() {
         setSrc1(`/Cards/bgs/${colorVariants[clan]}.png`);
         setSrc2(`/Cards/frames/${colorVariants[clan]}.png`);
         setSrc3(`/Cards/grad/${colorVariants[clan]}.png`);
+        setSrc5(`/Cards/stars/${cost}.png`);
     };
 
     const mudarLenda = (legend: any) => {
@@ -90,7 +92,8 @@ export default function Gerador() {
                 <img className="absolute" src={src1} alt="bg"></img>
                 <img className="absolute" src={src4} alt="legend"></img>
                 <img className="absolute" src={src3} alt="grad"></img>
-                <img className="relative h-[50vh]" src={src2} alt="frame"></img>
+                <img className="absolute" src={src2} alt="frame"></img>
+                <img className="relative h-[50vh]" src={src5} alt="stars"></img>
             </div>
 
             <Card className="flex items-center w-[30vw] p-3">
