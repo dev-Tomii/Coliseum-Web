@@ -163,7 +163,7 @@ export default function Jogador() {
                     ))}
                 </Autocomplete>
             </div>
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center min-h-[100vh]">
                 {lendas.length > 0 &&
                     players.length > 0 &&
                     players
