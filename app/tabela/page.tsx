@@ -1,4 +1,4 @@
-import Table_Season from "../components/table_season"
+import Table_Season from "../components/tableseason"
 
 export default function Tabela() {
     return (
