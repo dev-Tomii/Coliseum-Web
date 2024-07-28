@@ -11,16 +11,17 @@ import {
 import { useState, useEffect } from "react";
 import { PiMedalFill } from "react-icons/pi";
 
-const calcularPuntuacionTotal = (ct: number[]): number => {
-    const gold = 3*ct[0];
-    const silver = 2*ct[1];
-    const bronze = ct[0]
-    return gold + silver + bronze
+const calcularPuntuacionTotal = (ct: number[], seasonsWon: number): number => {
+    const gold = 3 * ct[0];
+    const silver = 2 * ct[1];
+    const bronze = ct[0];
+    const seasons = 4 * seasonsWon;
+    return seasons + gold + silver + bronze;
 };
 
 const compararClanes = (clanA: any, clanB: any): number => {
-    const puntuacionA = calcularPuntuacionTotal(clanA["CT"]);
-    const puntuacionB = calcularPuntuacionTotal(clanB["CT"]);
+    const puntuacionA = calcularPuntuacionTotal(clanA["CT"], clanA["seasons"]);
+    const puntuacionB = calcularPuntuacionTotal(clanB["CT"], clanB["seasons"]);
 
     return puntuacionB - puntuacionA;
 };
@@ -42,7 +43,7 @@ export default function Pr() {
             <div className="flex mt-10 mx-auto justify-center min-h-[100vh]">
                 <h1 className="text-3xl">Carregando...</h1>
             </div>
-        )
+        );
     }
 
     return (
@@ -52,6 +53,7 @@ export default function Pr() {
                     <TableHeader>
                         <TableColumn className="text-base">PR</TableColumn>
                         <TableColumn className="text-base">Clãs</TableColumn>
+                        <TableColumn className="text-base">Seasons</TableColumn>
                         <TableColumn className="text-base items-center">
                             <PiMedalFill color="gold" size={20}></PiMedalFill>
                         </TableColumn>
@@ -73,6 +75,9 @@ export default function Pr() {
                                 </TableCell>
                                 <TableCell className="text-lg">
                                     {item["clan"]}
+                                </TableCell>
+                                <TableCell className="text-lg">
+                                    {item["seasons"]}
                                 </TableCell>
                                 <TableCell className="text-lg">
                                     {item["CT"][0]}
