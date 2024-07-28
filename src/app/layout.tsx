@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Coliseum Web",
-    description: "NextJS + NextUI",
+    description: "Website do Coliseu do Clas. Um projeto originalmente criado pelo YaksaTH",
 };
 
 export default function RootLayout({

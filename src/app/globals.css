@@ -11,8 +11,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 56, 56, 56;
-    --background-end-rgb: 56, 56, 56;
+    --background-start-rgb: 3b, 3b, 3b;
+    --background-end-rgb: 3b, 3b, 3b;
   }
 }
 
@@ -23,8 +23,8 @@ body {
 
 .img-bg {
   background-color: var(--background-start-rgb);
-  background-image: url('/bg.png');
-  background-size: fill;
+  background-image: url('/bg2.png');
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
