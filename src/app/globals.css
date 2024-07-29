@@ -3,34 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 3b, 3b, 3b;
-    --background-end-rgb: 3b, 3b, 3b;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 3b, 3b, 3b;
+        --background-end-rgb: 3b, 3b, 3b;
+    }
+}
+
+@font-face {
+    font-family: Enchanted;
+    src: url("/Cards/EnchantedLand.otf");
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: rgb(var(--background-start-rgb));
 }
 
 .img-bg {
-  background-color: var(--background-start-rgb);
-  background-image: url('/bg2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+    background-color: var(--background-start-rgb);
+    background-image: url("/bg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+    .text-balance {
+        text-wrap: balance;
+    }
 }
-

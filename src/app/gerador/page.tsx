@@ -8,6 +8,7 @@ import {
 } from "@nextui-org/autocomplete";
 import { Input, Button, Divider, Link, Image } from "@nextui-org/react";
 import { useState, useEffect } from "react";
+import "./gerador.css";
 
 export default function Gerador() {
     const colorVariants = {
@@ -26,12 +27,37 @@ export default function Gerador() {
         "Blackwater WWC": "brown",
     };
 
+    const textColors = {
+        base: ["semNome", "semCusto", "semLendaEHierarquia"],
+        gray: ["grayNome", "grayCusto", "grayLendaEHierarquia"],
+        green: ["greenNome", "greenCusto", "greenLendaEHierarquia"],
+        red: ["redNome", "redCusto", "redLendaEHierarquia"],
+        yellow: ["yellowNome", "yellowCusto", "yellowLendaEHierarquia"],
+        teamyellow: [
+            "teamyellowNome",
+            "teamyellowCusto",
+            "teamyellowLendaEHierarquia",
+        ],
+        cyan: ["cyanNome", "cyanCusto", "cyanLenda"],
+        blue: ["blueNome", "blueCusto", "blueLenda"],
+        purple: ["purpleNome", "purpleCusto", "purpleLenda"],
+        pink: ["pinkNome", "pinkCusto", "pinkLenda"],
+        brown: ["brownNome", "brownCusto", "brownLenda"],
+        white: ["whiteNome", "whiteCusto", "whiteLenda"],
+        orange: ["orangeNome", "orangeCusto", "orangeLenda"],
+    };
+
     const [name, setName] = useState("");
     const [cla, setCla] = useState("");
+    const [rank, setRank] = useState("");
     const [lenda, setLenda] = useState("");
     const [data, setData] = useState<any[]>([]);
     const [lendas, setLendas] = useState<any[]>([]);
     const [custo, setCusto] = useState(0);
+
+    const [colorA, setColorA] = useState("");
+    const [colorB, setColorB] = useState("");
+    const [colorC, setColorC] = useState("");
 
     const [src1, setSrc1] = useState("/Cards/bgs/base.png");
     const [src2, setSrc2] = useState("/Cards/frames/base.png");
@@ -55,6 +81,25 @@ export default function Gerador() {
         return "";
     };
 
+    const getColor = (name: string): string[] => {
+        for (let item in data) {
+            if (data[item]["nome"].toLowerCase() == name.toLowerCase()) {
+                const clan = data[item]["clan"] as keyof typeof colorVariants;
+                const variant = colorVariants[clan] as keyof typeof textColors;
+                return textColors[variant];
+            }
+        }
+        return ["", "", ""];
+    };
+
+    const getRank = (name: string): string => {
+        for (let item in data) {
+            if (data[item]["nome"].toLowerCase() == name.toLowerCase())
+                return data[item]["hierarquia"];
+        }
+        return "";
+    };
+
     const mudarCusto = (name: string) => {
         const cost = getCost(name);
         const clan = getClan(name) as keyof typeof colorVariants;
@@ -65,6 +110,7 @@ export default function Gerador() {
         setSrc2(`/Cards/frames/${colorVariants[clan]}.png`);
         setSrc3(`/Cards/grad/${colorVariants[clan]}.png`);
         setSrc5(`/Cards/stars/${cost}.png`);
+        setRank(getRank(name));
     };
 
     const mudarLenda = (legend: any) => {
@@ -83,8 +129,7 @@ export default function Gerador() {
             .then((res) => setData(res.jogadores));
         fetch("https://api.npoint.io/a61cbe38560a9ac5d278")
             .then((res) => res.json())
-            .then((res) => setLendas(res))
-            
+            .then((res) => setLendas(res));
     }, []);
     return (
         <div className="flex mx-auto justify-center items-center min-h-[100vh] flex-col">
@@ -93,7 +138,43 @@ export default function Gerador() {
                 <img className="absolute" src={src4} alt="legend"></img>
                 <img className="absolute" src={src3} alt="grad"></img>
                 <img className="absolute" src={src2} alt="frame"></img>
-                <img className="relative h-[50vh]" src={src5} alt="stars"></img>
+                <p
+                    className={
+                        "absolute enchanted text-3xl bottom-8 ml-6 text-center " +
+                        getColor(name)[1]
+                    }
+                >
+                    {rank}
+                </p>
+                <p
+                    className={
+                        "absolute enchanted text-4xl bottom-2 ml-3 text-center " +
+                        getColor(name)[1]
+                    }
+                >
+                    Custo: {custo}
+                </p>
+                <p
+                    className={
+                        "absolute enchanted text-3xl font-semibold top-2 ml-6 text-left " +
+                        getColor(name)[0]
+                    }
+                >
+                    {name}
+                </p>
+                <p
+                    className={
+                        "absolute enchanted text-xl top-8 ml-6 text-left capitalize " +
+                        getColor(name)[2]
+                    }
+                >
+                    {lenda}
+                </p>
+                <img
+                    className="relative h-[50vh]"
+                    src={custo != 0 ? src5 : "/Cards/stars/120.png"}
+                    alt="stars"
+                ></img>
             </div>
 
             <Card className="flex items-center w-[30vw] p-3">
@@ -121,7 +202,10 @@ export default function Gerador() {
                         onInputChange={mudarLenda}
                     >
                         {(item) => (
-                            <AutocompleteItem className="capitalize" key={lendas.indexOf(item)}>
+                            <AutocompleteItem
+                                className="capitalize"
+                                key={lendas.indexOf(item)}
+                            >
                                 {item["legend_name_key"]}
                             </AutocompleteItem>
                         )}
