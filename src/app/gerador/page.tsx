@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import {
     Autocomplete,
@@ -14,15 +14,27 @@ import domtoimage from "dom-to-image";
 
 function downloadCard() {
     var nodeToDownload = document.getElementById("print");
+    /* var nodesToEnlarge = Array.from(
+        document.getElementsByClassName("hq") as HTMLCollectionOf<HTMLElement>
+    );
+    for (let i = 0; i < nodesToEnlarge.length; i++) {
+        nodesToEnlarge[i].style.transform = "scale(2)";
+    } */
     domtoimage.toBlob(nodeToDownload as Node).then(function (blob) {
         saveAs(blob, "card.png");
     });
+
+    /* setTimeout(function () {
+        for (let i = 0; i < nodesToEnlarge.length; i++) {
+            nodesToEnlarge[i].style.transform = "scale(1)";
+        }
+    }, 700); */
 }
 
 export default function Gerador() {
     const colorVariants = {
         "": "base",
-        Vasco: "gray",
+        Vasco: "black",
         "Bichos do Mato": "green",
         "Inimigos da Moda": "red",
         Firebirds: "yellow",
@@ -38,7 +50,7 @@ export default function Gerador() {
 
     const textColors = {
         base: ["semNome", "semCusto", "semLendaEHierarquia"],
-        gray: ["grayNome", "grayCusto", "grayLendaEHierarquia"],
+        black: ["grayNome", "grayCusto", "grayLendaEHierarquia"],
         green: ["greenNome", "greenCusto", "greenLendaEHierarquia"],
         red: ["redNome", "redCusto", "redLendaEHierarquia"],
         yellow: ["yellowNome", "yellowCusto", "yellowLendaEHierarquia"],
@@ -63,10 +75,6 @@ export default function Gerador() {
     const [data, setData] = useState<any[]>([]);
     const [lendas, setLendas] = useState<any[]>([]);
     const [custo, setCusto] = useState(0);
-
-    const [colorA, setColorA] = useState("");
-    const [colorB, setColorB] = useState("");
-    const [colorC, setColorC] = useState("");
 
     const [src1, setSrc1] = useState("/Cards/bgs/base.png");
     const [src2, setSrc2] = useState("/Cards/frames/base.png");
@@ -144,15 +152,15 @@ export default function Gerador() {
         <div className="flex mx-auto justify-center items-center min-h-[100vh] flex-col">
             <div
                 id="print"
-                className="flex items-center mb-5 relative shadow-2xl"
+                className="flex items-center mb-5 relative shadow-2xl hq"
             >
-                <img className="absolute" src={src1} alt="bg"></img>
-                <img className="absolute" src={src4} alt="legend"></img>
-                <img className="absolute" src={src3} alt="grad"></img>
-                <img className="absolute" src={src2} alt="frame"></img>
+                <img className="absolute hq " src={src1} alt="bg"></img>
+                <img className="absolute hq " src={src4} alt="legend"></img>
+                <img className="absolute hq " src={src3} alt="grad"></img>
+                <img className="absolute hq " src={src2} alt="frame"></img>
                 <p
                     className={
-                        "absolute enchanted text-3xl bottom-8 ml-6 text-center " +
+                        "absolute enchanted text-3xl bottom-8 ml-6 text-center hq " +
                         getColor(name)[1]
                     }
                 >
@@ -160,7 +168,7 @@ export default function Gerador() {
                 </p>
                 <p
                     className={
-                        "absolute enchanted text-4xl bottom-2 ml-3 text-center " +
+                        "absolute enchanted text-4xl bottom-2 ml-4 text-center hq " +
                         getColor(name)[1]
                     }
                 >
@@ -168,7 +176,7 @@ export default function Gerador() {
                 </p>
                 <p
                     className={
-                        "absolute enchanted text-3xl font-semibold top-2 ml-6 text-left " +
+                        "absolute enchanted text-3xl font-semibold top-2 ml-6 text-left hq " +
                         getColor(name)[0]
                     }
                 >
@@ -176,14 +184,14 @@ export default function Gerador() {
                 </p>
                 <p
                     className={
-                        "absolute enchanted text-xl top-8 ml-6 text-left capitalize " +
+                        "absolute enchanted text-xl top-8 ml-6 text-left capitalize hq " +
                         getColor(name)[2]
                     }
                 >
                     {lenda}
                 </p>
                 <img
-                    className="relative h-[50vh]"
+                    className="relative h-[50vh] hq "
                     src={custo != 0 ? src5 : "/Cards/stars/120.png"}
                     alt="stars"
                 ></img>
@@ -234,7 +242,11 @@ export default function Gerador() {
                         label="Custo"
                         value={custo.toString()}
                     />
-                    <Button color="success" className="flex w-[80%] m-2" onPress={downloadCard}>
+                    <Button
+                        color="success"
+                        className="flex w-[80%] m-2"
+                        onPress={downloadCard}
+                    >
                         Download
                     </Button>
                 </CardBody>
