@@ -49,15 +49,15 @@ export default function Gerador() {
     };
 
     const textColors = {
-        base: ["semNome", "semCusto", "semLendaEHierarquia"],
-        black: ["grayNome", "grayCusto", "grayLendaEHierarquia"],
-        green: ["greenNome", "greenCusto", "greenLendaEHierarquia"],
-        red: ["redNome", "redCusto", "redLendaEHierarquia"],
-        yellow: ["yellowNome", "yellowCusto", "yellowLendaEHierarquia"],
+        base: ["semNome", "semCusto", "semLenda"],
+        black: ["blackNome", "blackCusto", "blackLenda"],
+        green: ["greenNome", "greenCusto", "greenLenda"],
+        red: ["redNome", "redCusto", "redLenda"],
+        yellow: ["yellowNome", "yellowCusto", "yellowLenda"],
         teamyellow: [
             "teamyellowNome",
             "teamyellowCusto",
-            "teamyellowLendaEHierarquia",
+            "teamyellowLenda",
         ],
         cyan: ["cyanNome", "cyanCusto", "cyanLenda"],
         blue: ["blueNome", "blueCusto", "blueLenda"],
@@ -200,12 +200,14 @@ export default function Gerador() {
             <Card className="flex items-center w-[30vw] p-3">
                 <CardBody className="flex flex-wrap flex-row justify-around items-center">
                     <Autocomplete
+                        allowsCustomValue
                         aria-label="nome"
                         variant="underlined"
                         defaultItems={data}
                         placeholder="Nome do jogador"
                         className="w-[40%] m-2"
                         onInputChange={mudarCusto}
+                        
                     >
                         {(item) => (
                             <AutocompleteItem key={data.indexOf(item)}>
