@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { saveAs } from 'file-saver';
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import {
     Autocomplete,
@@ -9,6 +10,14 @@ import {
 import { Input, Button, Divider, Link, Image } from "@nextui-org/react";
 import { useState, useEffect } from "react";
 import "./gerador.css";
+import domtoimage from "dom-to-image";
+
+function downloadCard() {
+    var nodeToDownload = document.getElementById("print");
+    domtoimage.toBlob(nodeToDownload as Node).then(function (blob) {
+        saveAs(blob, "card.png");
+    });
+}
 
 export default function Gerador() {
     const colorVariants = {
@@ -133,7 +142,10 @@ export default function Gerador() {
     }, []);
     return (
         <div className="flex mx-auto justify-center items-center min-h-[100vh] flex-col">
-            <div className="flex items-center mb-5 relative shadow-2xl">
+            <div
+                id="print"
+                className="flex items-center mb-5 relative shadow-2xl"
+            >
                 <img className="absolute" src={src1} alt="bg"></img>
                 <img className="absolute" src={src4} alt="legend"></img>
                 <img className="absolute" src={src3} alt="grad"></img>
@@ -222,7 +234,7 @@ export default function Gerador() {
                         label="Custo"
                         value={custo.toString()}
                     />
-                    <Button color="success" className="flex w-[80%] m-2">
+                    <Button color="success" className="flex w-[80%] m-2" onPress={downloadCard}>
                         Download
                     </Button>
                 </CardBody>
