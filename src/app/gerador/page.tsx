@@ -11,70 +11,29 @@ import { Input, Button, Divider, Link, Image } from "@nextui-org/react";
 import { useState, useEffect } from "react";
 import "./gerador.css";
 import domtoimage from "dom-to-image";
-
+import { Select, SelectSection, SelectItem } from "@nextui-org/select";
+import { ranks, textColors, custos } from "@/components/utils";
 function downloadCard() {
     var nodeToDownload = document.getElementById("print");
-    /* var nodesToEnlarge = Array.from(
-        document.getElementsByClassName("hq") as HTMLCollectionOf<HTMLElement>
-    );
-    for (let i = 0; i < nodesToEnlarge.length; i++) {
-        nodesToEnlarge[i].style.transform = "scale(2)";
-    } */
     domtoimage.toBlob(nodeToDownload as Node).then(function (blob) {
         saveAs(blob, "card.png");
     });
-
-    /* setTimeout(function () {
-        for (let i = 0; i < nodesToEnlarge.length; i++) {
-            nodesToEnlarge[i].style.transform = "scale(1)";
-        }
-    }, 700); */
 }
 
 export default function Gerador() {
-    const colorVariants = {
-        "": "base",
-        Vasco: "black",
-        "Bichos do Mato": "green",
-        "Inimigos da Moda": "red",
-        Firebirds: "yellow",
-        Aurora: "cyan",
-        Cruzeiro: "blue",
-        "Patota da Moneymatch": "pink",
-        "Complexo do Corinthians": "white",
-        "Strawberry Tea": "purple",
-        "Ranked Beasts": "orange",
-        Olimpo: "teamyellow",
-        "Blackwater WWC": "brown",
-    };
-
-    const textColors = {
-        base: ["semNome", "semCusto", "semLenda"],
-        black: ["blackNome", "blackCusto", "blackLenda"],
-        green: ["greenNome", "greenCusto", "greenLenda"],
-        red: ["redNome", "redCusto", "redLenda"],
-        yellow: ["yellowNome", "yellowCusto", "yellowLenda"],
-        teamyellow: [
-            "teamyellowNome",
-            "teamyellowCusto",
-            "teamyellowLenda",
-        ],
-        cyan: ["cyanNome", "cyanCusto", "cyanLenda"],
-        blue: ["blueNome", "blueCusto", "blueLenda"],
-        purple: ["purpleNome", "purpleCusto", "purpleLenda"],
-        pink: ["pinkNome", "pinkCusto", "pinkLenda"],
-        brown: ["brownNome", "brownCusto", "brownLenda"],
-        white: ["whiteNome", "whiteCusto", "whiteLenda"],
-        orange: ["orangeNome", "orangeCusto", "orangeLenda"],
-    };
-
     const [name, setName] = useState("");
-    const [cla, setCla] = useState("");
+    const [lenda, setLenda] = useState<any>("");
+    const [cla, setCla] = useState<any>("");
+    const [custo, setCusto] = useState("0");
     const [rank, setRank] = useState("");
-    const [lenda, setLenda] = useState("");
+
+    const [colorA, setColorA] = useState("");
+    const [colorB, setColorB] = useState("");
+    const [colorC, setColorC] = useState("");
+
     const [data, setData] = useState<any[]>([]);
     const [lendas, setLendas] = useState<any[]>([]);
-    const [custo, setCusto] = useState(0);
+    const [clas, setClas] = useState<any[]>([]);
 
     const [src1, setSrc1] = useState("/Cards/bgs/base.png");
     const [src2, setSrc2] = useState("/Cards/frames/base.png");
@@ -82,59 +41,33 @@ export default function Gerador() {
     const [src4, setSrc4] = useState("/Cards/legends/base.png");
     const [src5, setSrc5] = useState("/Cards/stars/120.png");
 
-    const getCost = (name: string) => {
-        for (let item in data) {
-            if (data[item]["nome"].toLowerCase() == name.toLowerCase())
-                return data[item]["custo"];
+    const changeStars = (amount: string) => {
+        if (amount == "") {
+            setCusto("0");
+            setSrc5(`/Cards/stars/120.png`);
+        } else {
+            setCusto(amount);
+            setSrc5(`/Cards/stars/${amount}.png`);
         }
-        return 0;
     };
 
-    const getClan = (name: string): string => {
-        for (let item in data) {
-            if (data[item]["nome"].toLowerCase() == name.toLowerCase())
-                return data[item]["clan"];
-        }
-        return "";
-    };
-
-    const getColor = (name: string): string[] => {
-        for (let item in data) {
-            if (data[item]["nome"].toLowerCase() == name.toLowerCase()) {
-                const clan = data[item]["clan"] as keyof typeof colorVariants;
-                const variant = colorVariants[clan] as keyof typeof textColors;
-                return textColors[variant];
-            }
-        }
-        return ["", "", ""];
-    };
-
-    const getRank = (name: string): string => {
-        for (let item in data) {
-            if (data[item]["nome"].toLowerCase() == name.toLowerCase())
-                return data[item]["hierarquia"];
-        }
-        return "";
-    };
-
-    const mudarCusto = (name: string) => {
-        const cost = getCost(name);
-        const clan = getClan(name) as keyof typeof colorVariants;
-        setCusto(cost);
-        setName(name);
-        setCla(getClan(name));
-        setSrc1(`/Cards/bgs/${colorVariants[clan]}.png`);
-        setSrc2(`/Cards/frames/${colorVariants[clan]}.png`);
-        setSrc3(`/Cards/grad/${colorVariants[clan]}.png`);
-        setSrc5(`/Cards/stars/${cost}.png`);
-        setRank(getRank(name));
+    const changeColor = (key: any) => {
+        setCla(key);
+        const color = clas[key["currentKey"]]["color"];
+        const col = clas[key["currentKey"]]["color"] as keyof typeof textColors;
+        setSrc1(`/Cards/bgs/${color}.png`);
+        setSrc2(`/Cards/frames/${color}.png`);
+        setSrc3(`/Cards/grad/${color}.png`);
+        setColorA(textColors[col][0]);
+        setColorB(textColors[col][1]);
+        setColorC(textColors[col][2]);
     };
 
     const mudarLenda = (legend: any) => {
         if (legend != "") {
-            console.log(legend);
+            const len = lendas[legend["currentKey"]]["legend_name_key"];
             setLenda(legend);
-            setSrc4(`/Cards/legends/${legend}.png`);
+            setSrc4(`/Cards/legends/${len}.png`);
         } else {
             setSrc4(`/Cards/legends/base.png`);
         }
@@ -147,52 +80,59 @@ export default function Gerador() {
         fetch("https://api.npoint.io/a61cbe38560a9ac5d278")
             .then((res) => res.json())
             .then((res) => setLendas(res));
+        fetch("https://api.npoint.io/6488fb58f82a76e31664")
+            .then((res) => res.json())
+            .then((res) => setClas(res));
     }, []);
     return (
         <div className="flex mx-auto justify-center items-center min-h-[100vh] flex-col">
             <div
                 id="print"
-                className="flex items-center mb-5 relative shadow-2xl hq"
+                className="flex items-center mb-5 relative shadow-2xl w-[358px] h-[470px]"
             >
-                <img className="absolute hq " src={src1} alt="bg"></img>
-                <img className="absolute hq " src={src4} alt="legend"></img>
-                <img className="absolute hq " src={src3} alt="grad"></img>
-                <img className="absolute hq " src={src2} alt="frame"></img>
+                <img
+                    className="absolute w-[358px] h-[470px]"
+                    src={src1}
+                    alt="bg"
+                ></img>
+                <img
+                    className="absolute w-[358px] h-[470px]"
+                    src={src4}
+                    alt="legend"
+                ></img>
+                <img
+                    className="absolute w-[358px] h-[470px]"
+                    src={src3}
+                    alt="grad"
+                ></img>
+                <img
+                    className="absolute w-[358px] h-[470px]"
+                    src={src2}
+                    alt="frame"
+                ></img>
+                <span className={"absolute enchanted text-3xl bottom-8 ml-6 " + colorB}>{rank}</span>
+                <span className={"absolute enchanted text-4xl bottom-2 text-center ml-4 " + colorB}>Custo: {custo}</span>
                 <p
                     className={
-                        "absolute enchanted text-3xl bottom-8 ml-6 text-center hq " +
-                        getColor(name)[1]
-                    }
-                >
-                    {rank}
-                </p>
-                <p
-                    className={
-                        "absolute enchanted text-4xl bottom-2 ml-4 text-center hq " +
-                        getColor(name)[1]
-                    }
-                >
-                    Custo: {custo}
-                </p>
-                <p
-                    className={
-                        "absolute enchanted text-3xl font-semibold top-2 ml-6 text-left hq " +
-                        getColor(name)[0]
+                        "absolute enchanted text-3xl font-semibold top-2 ml-6 text-left " +
+                        colorA
                     }
                 >
                     {name}
                 </p>
                 <p
                     className={
-                        "absolute enchanted text-xl top-8 ml-6 text-left capitalize hq " +
-                        getColor(name)[2]
+                        "absolute enchanted text-xl top-8 ml-6 text-left capitalize " +
+                        colorC
                     }
                 >
-                    {lenda}
+                    {lendas[lenda["currentKey"]] != undefined
+                        ? lendas[lenda["currentKey"]]["legend_name_key"]
+                        : ""}
                 </p>
                 <img
-                    className="relative h-[50vh] hq "
-                    src={custo != 0 ? src5 : "/Cards/stars/120.png"}
+                    className="relative w-[358px] h-[470px] hq "
+                    src={custo != "0" ? src5 : "/Cards/stars/120.png"}
                     alt="stars"
                 ></img>
             </div>
@@ -206,8 +146,7 @@ export default function Gerador() {
                         defaultItems={data}
                         placeholder="Nome do jogador"
                         className="w-[40%] m-2"
-                        onInputChange={mudarCusto}
-                        
+                        onInputChange={setName}
                     >
                         {(item) => (
                             <AutocompleteItem key={data.indexOf(item)}>
@@ -215,35 +154,62 @@ export default function Gerador() {
                             </AutocompleteItem>
                         )}
                     </Autocomplete>
-                    <Autocomplete
-                        aria-label="nome"
+                    <Select
+                        aria-label="lenda"
                         variant="underlined"
-                        defaultItems={lendas}
                         placeholder="Selecione uma Lenda"
                         className="w-[40%] m-2"
-                        onInputChange={mudarLenda}
+                        selectedKeys={lenda}
+                        onSelectionChange={mudarLenda}
+                    >
+                        {lendas.map((item, index) => (
+                            <SelectItem className="capitalize" key={index}>
+                                {item["legend_name_key"]}
+                            </SelectItem>
+                        ))}
+                    </Select>
+                    <Select
+                        aria-label="cla"
+                        variant="underlined"
+                        placeholder="Selecione um cla"
+                        className="w-[40%] m-2"
+                        selectedKeys={cla}
+                        onSelectionChange={changeColor}
+                    >
+                        {clas.map((item, index) => (
+                            <SelectItem className="capitalize" key={index}>
+                                {item["clan"]}
+                            </SelectItem>
+                        ))}
+                    </Select>
+                    <Autocomplete
+                        aria-label="custo"
+                        variant="underlined"
+                        defaultItems={custos}
+                        placeholder="Custo do jogador"
+                        className="w-[40%] m-2"
+                        onInputChange={changeStars}
                     >
                         {(item) => (
-                            <AutocompleteItem
-                                className="capitalize"
-                                key={lendas.indexOf(item)}
-                            >
-                                {item["legend_name_key"]}
+                            <AutocompleteItem key={item.key} value={item.custo}>
+                                {item.custo}
                             </AutocompleteItem>
                         )}
                     </Autocomplete>
-                    <Input
-                        className="flex w-[40%] m-2"
-                        isReadOnly
-                        label="Cla"
-                        value={cla}
-                    />
-                    <Input
-                        className="flex w-[40%] m-2"
-                        isReadOnly
-                        label="Custo"
-                        value={custo.toString()}
-                    />
+                    <Autocomplete
+                        aria-label="rank"
+                        variant="underlined"
+                        placeholder="Selecione um hierarquia"
+                        className="w-[90%] m-2"
+                        defaultItems={ranks}
+                        onInputChange={setRank}
+                    >
+                        {(item) => (
+                            <AutocompleteItem key={item.key} value={item.rank}>
+                                {item.rank}
+                            </AutocompleteItem>
+                        )}
+                    </Autocomplete>
                     <Button
                         color="success"
                         className="flex w-[80%] m-2"

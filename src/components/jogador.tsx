@@ -12,7 +12,7 @@ import {
 
 import React, { useState, useEffect, useCallback } from "react";
 import { FaStar, FaStarHalf, FaSearch } from "react-icons/fa";
-
+import { colorVariants } from '@/components/utils'
 function stars(cost: number) {
     const totalStars = [];
     const completed = Math.floor(cost / 10 / 2);
@@ -52,21 +52,6 @@ export default function Jogador() {
     const [costFilter, setCostFilter] = useState("");
     const [legendFilter, setLegendFilter] = useState("");
     const [rankFilter, setRankFilter] = useState("");
-
-    const colorVariants = {
-        Vasco: "text-gray-400",
-        "Bichos do Mato": "text-green-500",
-        "Inimigos da Moda": "text-red-500",
-        Firebirds: "text-yellow-500",
-        Aurora: "text-cyan-500",
-        Cruzeiro: "text-blue-500",
-        "Patota da Moneymatch": "text-pink-500",
-        "Complexo do Corinthians": "text-zinc-200",
-        "Strawberry Tea": "text-purple-500",
-        "Ranked Beasts": "text-orange-500",
-        "Olimpo": "text-orange-200",
-        "Blackwater WWC": "text-brown-500"
-    };
 
     const hierarquias = ["Membro", "Lider"];
     const custos = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
