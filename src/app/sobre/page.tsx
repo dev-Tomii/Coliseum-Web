@@ -5,12 +5,13 @@ export default function Sobre() {
     return (
         <>
             <div className="container mx-auto">
-                <div className="box flex px-20 mt-2 items-center">
+                <div className="box flex px-20 items-center mb-32 mt-10 md:mb-1">
                     <Image
                         isBlurred
                         src="/emote1.png"
                         alt="render"
                         width={200}
+                        className="hidden md:flex"
                     ></Image>
                     <div className="box-txt flex-column text-left ml-10 align-middle">
                         <h2 className="uppercase text-xl font-bold">
@@ -38,8 +39,9 @@ export default function Sobre() {
                         src="/emote2.png"
                         alt="render"
                         width={200}
+                        className="hidden md:flex"
                     ></Image>
-                    <div className="box-txt flex-column text-right  mr-10 align-middle">
+                    <div className="box-txt flex-column text-right  mr-10 align-middle mt-5 md:mt-1">
                         <h2 className="uppercase text-xl font-bold">
                             Quero participar, como faço?
                         </h2>
@@ -68,8 +70,9 @@ export default function Sobre() {
                         src="/emote3.png"
                         alt="render"
                         width={200}
+                        className="hidden md:flex"
                     ></Image>
-                    <div className="box-txt flex-column text-left ml-10 align-middle">
+                    <div className="box-txt flex-column text-left ml-10 align-middle mt-32 md:mt-1">
                         <h2 className="uppercase text-xl font-bold">
                             Por onde posso acompanhar as partidas?
                         </h2>

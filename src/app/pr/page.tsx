@@ -49,18 +49,18 @@ export default function Pr() {
     return (
         <>
             <div className="container py-5 mx-auto">
-                <Table className="py-20 my-20 px-5 mx-5">
-                    <TableHeader>
-                        <TableColumn className="text-base">PR</TableColumn>
-                        <TableColumn className="text-base">Clãs</TableColumn>
-                        <TableColumn className="text-base">Seasons</TableColumn>
-                        <TableColumn className="text-base items-center">
+                <Table className="py-20 my-20 px-1 md:px-5 mx-1 md:mx-5 w-[95vw]">
+                    <TableHeader className="w-[90vw]">
+                        <TableColumn className="md:text-base text-xs">PR</TableColumn>
+                        <TableColumn className="md:text-base text-xs">Clãs</TableColumn>
+                        <TableColumn className="md:text-base text-xs">Seasons</TableColumn>
+                        <TableColumn className="md:text-base items-center text-xs">
                             <PiMedalFill color="gold" size={20}></PiMedalFill>
                         </TableColumn>
-                        <TableColumn className="text-base items-center">
+                        <TableColumn className="md:text-base items-center text-xs">
                             <PiMedalFill color="silver" size={20}></PiMedalFill>
                         </TableColumn>
-                        <TableColumn className="text-base items-center">
+                        <TableColumn className="md:text-base items-center text-xs">
                             <PiMedalFill
                                 color="chocolate"
                                 size={20}
@@ -70,22 +70,22 @@ export default function Pr() {
                     <TableBody items={data}>
                         {(item) => (
                             <TableRow key={data.indexOf(item)}>
-                                <TableCell className="text-lg">
+                                <TableCell className="text-xs md:text-lg">
                                     {data.indexOf(item) + 1}
                                 </TableCell>
-                                <TableCell className="text-lg">
+                                <TableCell className="text-xs md:text-lg">
                                     {item["clan"]}
                                 </TableCell>
-                                <TableCell className="text-lg">
+                                <TableCell className="text-xs md:text-lg">
                                     {item["seasons"]}
                                 </TableCell>
-                                <TableCell className="text-lg">
+                                <TableCell className="text-xs md:text-lg">
                                     {item["CT"][0]}
                                 </TableCell>
-                                <TableCell className="text-lg">
+                                <TableCell className="text-xs md:text-lg">
                                     {item["CT"][1]}
                                 </TableCell>
-                                <TableCell className="text-lg">
+                                <TableCell className="text-xs md:text-lg">
                                     {item["CT"][2]}
                                 </TableCell>
                             </TableRow>

@@ -54,7 +54,7 @@ export default function TableSeason({ season }: { season: string }) {
             <h2 className="text-center text-xl py-2 capitalize text-amber-400 font-bold">
                 {sub0 + " " + sub1}
             </h2>
-            <Table>
+            <Table className="px-5">
                 <TableHeader>
                     <TableColumn>Clãs</TableColumn>
                     <TableColumn>Pontos</TableColumn>

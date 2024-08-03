@@ -73,6 +73,10 @@ export default function Gerador() {
         }
     };
 
+    /* TODO */
+    /* Ordenar la lista de leyendas por orden alfabetico */
+    /* Corregir imagenes */
+
     useEffect(() => {
         fetch("https://api.npoint.io/73701443fb9f9a913c0b")
             .then((res) => res.json())
@@ -96,7 +100,7 @@ export default function Gerador() {
                     alt="bg"
                 ></img>
                 <img
-                    className="absolute w-[358px] h-[470px]"
+                    className="absolute w-[358px] h-[470px] object-contain"
                     src={src4}
                     alt="legend"
                 ></img>

@@ -88,9 +88,8 @@ export default function Jogador() {
                 <Input
                     value={search}
                     onValueChange={setSearch}
-                    label="Busque um jogador"
                     className="mx-2 mb-5"
-                    startContent={<FaSearch />}
+                    label='Digite um jogador'
                     /* onChange={maxPag} */
                 />
                 <Autocomplete
@@ -98,6 +97,7 @@ export default function Jogador() {
                     onInputChange={setClanFilter}
                     className="mx-2 mb-5"
                     label="Selecione um clã"
+                    
                     /* onSelectionChange={maxPag} */
                 >
                     {clans.map((clan, index) => (
