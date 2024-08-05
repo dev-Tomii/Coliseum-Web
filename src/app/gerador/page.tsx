@@ -141,7 +141,7 @@ export default function Gerador() {
                 ></img>
             </div>
 
-            <Card className="flex items-center w-[30vw] p-3">
+            <Card className="flex items-center mb-3 w-[90vw] md:w-[70vw] lg:w-[40vw] p-3">
                 <CardBody className="flex flex-wrap flex-row justify-around items-center">
                     <Autocomplete
                         allowsCustomValue

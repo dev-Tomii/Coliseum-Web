@@ -7,12 +7,14 @@ import {
     Autocomplete,
     AutocompleteItem,
     Input,
-    Pagination,
+    Divider,
 } from "@nextui-org/react";
+
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 import React, { useState, useEffect, useCallback } from "react";
 import { FaStar, FaStarHalf, FaSearch } from "react-icons/fa";
-import { colorVariants } from '@/components/utils'
+import { colorVariants } from "@/components/utils";
 function stars(cost: number) {
     const totalStars = [];
     const completed = Math.floor(cost / 10 / 2);
@@ -84,21 +86,18 @@ export default function Jogador() {
 
     return (
         <div className="flex flex-col">
-            <div className="flex flex-auto mx-auto justify-center">
+            <div className="md:flex flex-auto mx-auto justify-center hidden">
                 <Input
                     value={search}
                     onValueChange={setSearch}
                     className="mx-2 mb-5"
-                    label='Digite um jogador'
-                    /* onChange={maxPag} */
+                    label="Digite um jogador"
                 />
                 <Autocomplete
                     value={clanFilter}
                     onInputChange={setClanFilter}
                     className="mx-2 mb-5"
                     label="Selecione um clã"
-                    
-                    /* onSelectionChange={maxPag} */
                 >
                     {clans.map((clan, index) => (
                         <AutocompleteItem key={index} value={clan["clan"]}>
@@ -111,7 +110,6 @@ export default function Jogador() {
                     onInputChange={setCostFilter}
                     className="mx-2 mb-5"
                     label="Selecione um custo"
-                    /* onSelectionChange={maxPag} */
                 >
                     {custos.reverse().map((custo, index) => (
                         <AutocompleteItem key={index} value={custo}>
@@ -124,7 +122,6 @@ export default function Jogador() {
                     label="Selecione uma hierarquia"
                     value={rankFilter}
                     onInputChange={setRankFilter}
-                    /* onSelectionChange={maxPag} */
                 >
                     {hierarquias.reverse().map((item, index) => (
                         <AutocompleteItem key={index} value={item}>
@@ -137,7 +134,6 @@ export default function Jogador() {
                     label="Selecione uma lenda"
                     value={legendFilter}
                     onInputChange={setLegendFilter}
-                    /* onSelectionChange={maxPag} */
                 >
                     {lendas.map((item, index) => (
                         <AutocompleteItem
@@ -149,6 +145,74 @@ export default function Jogador() {
                         </AutocompleteItem>
                     ))}
                 </Autocomplete>
+            </div>
+            <div className="flex md:hidden flex-col">
+                <Accordion>
+                    <AccordionItem key={1} title="Filters" className="w-[95vw] mx-auto">
+                        <Input
+                            value={search}
+                            onValueChange={setSearch}
+                            className="mx-2 mb-5 w-[90vw]"
+                            label="Digite um jogador"
+                        />
+                        <Autocomplete
+                            value={clanFilter}
+                            onInputChange={setClanFilter}
+                            className="mx-2 mb-5 w-[90vw]"
+                            label="Selecione um clã"
+                        >
+                            {clans.map((clan, index) => (
+                                <AutocompleteItem
+                                    key={index}
+                                    value={clan["clan"]}
+                                >
+                                    {clan["clan"]}
+                                </AutocompleteItem>
+                            ))}
+                        </Autocomplete>
+                        <Autocomplete
+                            value={costFilter}
+                            onInputChange={setCostFilter}
+                            className="mx-2 mb-5 w-[90vw]"
+                            label="Selecione um custo"
+                        >
+                            {custos.reverse().map((custo, index) => (
+                                <AutocompleteItem key={index} value={custo}>
+                                    {`${custo}`}
+                                </AutocompleteItem>
+                            ))}
+                        </Autocomplete>
+                        <Autocomplete
+                            className="mx-2 mb-5 w-[90vw]"
+                            label="Selecione uma hierarquia"
+                            value={rankFilter}
+                            onInputChange={setRankFilter}
+                        >
+                            {hierarquias.reverse().map((item, index) => (
+                                <AutocompleteItem key={index} value={item}>
+                                    {item}
+                                </AutocompleteItem>
+                            ))}
+                        </Autocomplete>
+                        <Autocomplete
+                            className="mx-2 mb-5 w-[90vw]"
+                            label="Selecione uma lenda"
+                            value={legendFilter}
+                            onInputChange={setLegendFilter}
+                        >
+                            {lendas.map((item, index) => (
+                                <AutocompleteItem
+                                    key={index}
+                                    className="capitalize"
+                                    value={item["legend_name_key"]}
+                                >
+                                    {item["legend_name_key"]}
+                                </AutocompleteItem>
+                            ))}
+                        </Autocomplete>
+                    </AccordionItem>
+                </Accordion>
+                <Divider className="my-5"></Divider>
             </div>
             <div className="flex flex-wrap justify-center min-h-[100vh]">
                 {lendas.length > 0 &&
@@ -194,14 +258,6 @@ export default function Jogador() {
                             </Card>
                         ))}
             </div>
-            {/* <Pagination
-                className="flex flex-auto justify-center mt-5"
-                total={maxPage}
-                initialPage={1}
-                color="warning"
-                page={currentPage}
-                onChange={setCurrentPage}
-            /> */}
         </div>
     );
 }
