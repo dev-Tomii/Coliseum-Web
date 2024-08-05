@@ -30,15 +30,11 @@ function stars(cost: number) {
 
 function getLegendImage(lendas: any, name: string) {
     name = name.toLowerCase();
-    if (name == "desconhecido") {
+    const obj = lendas.find((lenda: any) => lenda.legend_name_key == name);
+    if (obj == undefined) {
         return "https://static.wikia.nocookie.net/brawlhalla_gamepedia/images/a/ac/Avatar_Unknown_User.png";
     } else {
-        const obj = lendas.find((lenda: any) => lenda.legend_name_key == name);
-        if (obj == undefined) {
-            return "https://static.wikia.nocookie.net/brawlhalla_gamepedia/images/a/ac/Avatar_Unknown_User.png";
-        } else {
-            return obj["thumbnail"];
-        }
+        return obj["thumbnail"];
     }
 }
 
@@ -148,7 +144,11 @@ export default function Jogador() {
             </div>
             <div className="flex md:hidden flex-col">
                 <Accordion>
-                    <AccordionItem key={1} title="Filters" className="w-[95vw] mx-auto">
+                    <AccordionItem
+                        key={1}
+                        title="Filters"
+                        className="w-[95vw] mx-auto"
+                    >
                         <Input
                             value={search}
                             onValueChange={setSearch}
