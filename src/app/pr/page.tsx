@@ -48,8 +48,8 @@ export default function Pr() {
 
     return (
         <>
-            <div className="container py-5 mx-auto">
-                <Table className="py-20 my-20 px-1 md:px-5 mx-1 md:mx-5 w-[95vw]">
+            <div className="flex mx-auto container py-5">
+                <Table className="justify-center py-20 my-20 px-1 md:px-5 mx-1 md:mx-5 w-[95vw]">
                     <TableHeader className="w-[90vw]">
                         <TableColumn className="md:text-base text-xs">PR</TableColumn>
                         <TableColumn className="md:text-base text-xs">Clãs</TableColumn>
