@@ -8,6 +8,6 @@ export async function GET() {
 
 export async function POST(request: Request) {
     const data = await request.json();
-    writeFileSync("./players.json", data);
+    writeFileSync("./players.json", JSON.stringify(data));
     return NextResponse.json(data);
 }
