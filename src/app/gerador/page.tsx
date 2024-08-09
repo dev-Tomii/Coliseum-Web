@@ -38,7 +38,7 @@ export default function Gerador() {
     const [src1, setSrc1] = useState("/Cards/bgs/base.png");
     const [src2, setSrc2] = useState("/Cards/frames/base.png");
     const [src3, setSrc3] = useState("/Cards/grad/base.png");
-    const [src4, setSrc4] = useState("/Cards/legends/base.png");
+    const [src4, setSrc4] = useState("/Cards/legends/desconhecido.png");
     const [src5, setSrc5] = useState("/Cards/stars/120.png");
 
     const changeStars = (amount: string) => {
