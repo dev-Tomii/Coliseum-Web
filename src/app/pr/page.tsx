@@ -11,21 +11,6 @@ import {
 import { useState, useEffect } from "react";
 import { PiMedalFill } from "react-icons/pi";
 
-const calcularPuntuacionTotal = (ct: number[], seasonsWon: number): number => {
-    const gold = 3 * ct[0];
-    const silver = 2 * ct[1];
-    const bronze = ct[0];
-    const seasons = 4 * seasonsWon;
-    return seasons + gold + silver + bronze;
-};
-
-const compararClanes = (clanA: any, clanB: any): number => {
-    const puntuacionA = calcularPuntuacionTotal(clanA["CT"], clanA["seasons"]);
-    const puntuacionB = calcularPuntuacionTotal(clanB["CT"], clanB["seasons"]);
-
-    return puntuacionB - puntuacionA;
-};
-
 export default function Pr() {
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState([]);
@@ -33,7 +18,6 @@ export default function Pr() {
     useEffect(() => {
         fetch("https://api.npoint.io/6488fb58f82a76e31664")
             .then((res) => res.json())
-            .then((res) => res.sort(compararClanes))
             .then((res) => setData(res))
             .then((res) => setIsLoading(false));
     }, []);
