@@ -14,14 +14,12 @@ import {
 export default function ClanCard({
     clanname,
     clanlogo,
-    clanddesc,
     clanleader,
     clancoleader,
     ct
 }: {
     clanname: string;
     clanlogo: string;
-    clanddesc: string;
     clanleader: string;
     clancoleader: string;
     ct: string[];
@@ -67,9 +65,6 @@ export default function ClanCard({
                                         <p className="text-right">{clancoleader}</p>
                                     </div>
                                 </div>
-                                <p>
-                                    {clanddesc}
-                                </p>
                             </ModalBody>
                             <ModalFooter>
                                 <Button
