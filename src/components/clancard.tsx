@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
-import { PiMedalFill } from "react-icons/pi";
 import {
     Modal,
     ModalContent,
@@ -13,16 +12,12 @@ import {
 
 export default function ClanCard({
     clanname,
-    clanlogo,
     clanleader,
     clancoleader,
-    ct
 }: {
     clanname: string;
-    clanlogo: string;
     clanleader: string;
     clancoleader: string;
-    ct: string[];
 }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -31,17 +26,12 @@ export default function ClanCard({
             <Card isPressable onPress={onOpen} className="py-4 m-4">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                     <p className="text-large uppercase font-bold">{clanname}</p>
-                    <small className="text-default-500 flex flex-row">
-                        <PiMedalFill color="gold"></PiMedalFill>{ct[0]}⠀
-                        <PiMedalFill color="silver"></PiMedalFill>{ct[1]}⠀
-                        <PiMedalFill color="chocolate"></PiMedalFill>{ct[2]}⠀
-                    </small>
                 </CardHeader>
                 <CardBody className="overflow-visible py-2">
                     <Image
                         alt="Logo"
                         className="object-cover rounded"
-                        src={`/Clans/${clanlogo.toLowerCase()}.png`}
+                        src={`/Clans/${clanname.toLowerCase()}.png`}
                         width={270}
                         isBlurred
                     />

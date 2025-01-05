@@ -18,8 +18,6 @@ export default function Navegation() {
     const navItems = [
         { title: "Sobre", href: "/sobre", color: "f" },
         { title: "Funcionamento", href: "/funcionamento", color: "f" },
-        { title: "Power Ranking", href: "/pr", color: "f" },
-        { title: "Tabela", href: "/tabela", color: "f" },
         { title: "Jogadores", href: "/jogadores", color: "f" },
         { title: "Gerador de Cartas", href: "/gerador", color: "f" },
     ];

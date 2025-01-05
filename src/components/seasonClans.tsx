@@ -29,10 +29,8 @@ export default function SeasonClans() {
                     <>
                         <ClanCard
                             clanname={i["clan"]}
-                            clanlogo={`${i["clan"]}`}
                             clanleader={i["leader"]}
                             clancoleader={i["coleader"]}
-                            ct={i["CT"]}
                         ></ClanCard>
                     </>
                 ))}

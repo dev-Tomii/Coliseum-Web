@@ -35,9 +35,9 @@ export default function Gerador() {
     const [lendas, setLendas] = useState<any[]>([]);
     const [clas, setClas] = useState<any[]>([]);
 
-    const [src1, setSrc1] = useState("/Cards/bgs/base.png");
-    const [src2, setSrc2] = useState("/Cards/frames/base.png");
-    const [src3, setSrc3] = useState("/Cards/grad/base.png");
+    const [src1, setSrc1] = useState("/Cards/Default/BG.png");
+    const [src2, setSrc2] = useState("/Cards/Default/Grad.png");
+    const [src3, setSrc3] = useState("/Cards/Default/Borda.png");
     const [src4, setSrc4] = useState("/Cards/legends/desconhecido.png");
     const [src5, setSrc5] = useState("/Cards/stars/120.png");
 
@@ -73,9 +73,6 @@ export default function Gerador() {
         }
     };
 
-    /* TODO */
-    /* Ordenar la lista de leyendas por orden alfabetico */
-    /* Corregir imagenes */
 
     useEffect(() => {
         fetch("https://api.npoint.io/73701443fb9f9a913c0b")
