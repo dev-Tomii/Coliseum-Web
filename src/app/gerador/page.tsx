@@ -89,7 +89,7 @@ export default function Gerador() {
         <div className="flex mx-auto justify-center items-center min-h-[100vh] flex-col">
             <div
                 id="print"
-                className="flex items-center mb-5 relative shadow-2xl w-[700px] h-[900px]"
+                className="flex items-center mb-5 relative shadow-2xl w-[358px] h-[470px]"
             >
                 <img
                     className="absolute w-[358px] h-[470px]"
