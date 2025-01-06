@@ -39,15 +39,15 @@ export default function Gerador() {
     const [src2, setSrc2] = useState("/Cards/Default/Grad.png");
     const [src3, setSrc3] = useState("/Cards/Default/Borda.png");
     const [src4, setSrc4] = useState("/Cards/legends/desconhecido.png");
-    const [src5, setSrc5] = useState("/Cards/stars/120.png");
+    const [src5, setSrc5] = useState("/Cards/Stars/120.png");
 
     const changeStars = (amount: string) => {
         if (amount == "") {
             setCusto("0");
-            setSrc5(`/Cards/stars/120.png`);
+            setSrc5(`/Cards/Stars/120.png`);
         } else {
             setCusto(amount);
-            setSrc5(`/Cards/stars/${amount}.png`);
+            setSrc5(`/Cards/Stars/${amount}.png`);
         }
     };
 
