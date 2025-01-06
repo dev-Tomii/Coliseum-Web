@@ -35,9 +35,9 @@ export default function Gerador() {
     const [lendas, setLendas] = useState<any[]>([]);
     const [clas, setClas] = useState<any[]>([]);
 
-    const [src1, setSrc1] = useState("/Cards/Default/Borda.png");
-    const [src2, setSrc2] = useState("/Cards/Default/Grad.png");
-    const [src3, setSrc3] = useState("/Cards/Default/BG.png");
+    const [src1, setSrc1] = useState("/Cards/Default/BG.png");
+    const [src2, setSrc2] = useState("/Cards/Default/Borda.png");
+    const [src3, setSrc3] = useState("/Cards/Default/Grad.png");
     const [src4, setSrc4] = useState("/Cards/legends/desconhecido.png");
     const [src5, setSrc5] = useState("/Cards/Stars/120.png");
 
@@ -133,7 +133,7 @@ export default function Gerador() {
                 </p>
                 <img
                     className="relative w-[358px] h-[470px] hq "
-                    src={custo != "0" ? src5 : "/Cards/stars/120.png"}
+                    src={custo != "0" ? src5 : "/Cards/Stars/120.png"}
                     alt="stars"
                 ></img>
             </div>
