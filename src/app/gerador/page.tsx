@@ -53,14 +53,14 @@ export default function Gerador() {
 
     const changeColor = (key: any) => {
         setCla(key);
-        const color = clas[key["currentKey"]]["color"];
-        const col = clas[key["currentKey"]]["color"] as keyof typeof textColors;
-        setSrc1(`/Cards/bgs/${color}.png`);
-        setSrc2(`/Cards/frames/${color}.png`);
-        setSrc3(`/Cards/grad/${color}.png`);
-        setColorA(textColors[col][0]);
-        setColorB(textColors[col][1]);
-        setColorC(textColors[col][2]);
+        const clanname = clas[key["currentKey"]]["clan"];
+        const clan = clas[key["currentKey"]]["clan"] as keyof typeof textColors;
+        setSrc1(`/Cards/${clanname}/BG.png`);
+        setSrc2(`/Cards/${clanname}/Grad.png`);
+        setSrc3(`/Cards/${clanname}/Borda.png`);
+        setColorA(textColors[clan][0]);
+        setColorB(textColors[clan][1]);
+        setColorC(textColors[clan][2]);
     };
 
     const mudarLenda = (legend: any) => {

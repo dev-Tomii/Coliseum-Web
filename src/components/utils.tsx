@@ -14,19 +14,12 @@ export const colorVariants = {
 };
 
 export const textColors = {
-    base: ["semNome", "semCusto", "semLenda"],
-    black: ["blackNome", "blackCusto", "blackLenda"],
-    green: ["greenNome", "greenCusto", "greenLenda"],
-    red: ["redNome", "redCusto", "redLenda"],
-    yellow: ["yellowNome", "yellowCusto", "yellowLenda"],
-    teamyellow: ["teamyellowNome", "teamyellowCusto", "teamyellowLenda"],
-    cyan: ["cyanNome", "cyanCusto", "cyanLenda"],
-    blue: ["blueNome", "blueCusto", "blueLenda"],
-    purple: ["purpleNome", "purpleCusto", "purpleLenda"],
-    pink: ["pinkNome", "pinkCusto", "pinkLenda"],
-    brown: ["brownNome", "brownCusto", "brownLenda"],
-    white: ["whiteNome", "whiteCusto", "whiteLenda"],
-    orange: ["orangeNome", "orangeCusto", "orangeLenda"],
+    default: ["semNome", "semCusto", "semLenda"],
+    "trupe fantasma": ["trupeNome", "trupeCusto", "trupeLenda"],
+    vasco: ["vascoNome", "vascoCusto", "vascoLenda"],
+    "anfibios dourados": ["anfibiosNome", "anfibiosCusto", "anfibiosLenda"],
+    olimpo: ["olimpoNome", "olimpoCusto", "olimpoLenda"],
+    firebirds: ["firebirdsNome", "firebirdsCusto", "firebirdsLenda"],
 };
 
 export const custos = [

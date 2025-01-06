@@ -1,133 +1,71 @@
-.enchanted {
-    font-family: "Enchanted";
+.trupeNome {
+    color: #000000;
 }
 
-.purpleNome {
-    color: rgb(37, 26, 85);
+.trupeCusto {
+    color: #000000;
 }
-.purpleCusto {
-    color: rgb(224, 200, 242);
+
+.trupeLenda {
+    color: #000000;
 }
-.purpleLenda {
-    color: rgb(53, 33, 141);
+
+.vascoNome {
+    color: #000000;
 }
-/*Green*/
-.greenNome {
-    color: rgb(34, 52, 12);
+
+.vascoCusto {
+    color: #000000;
 }
-.greenCusto {
-    color: rgb(172, 255, 145);
+
+.vascoLenda {
+    color: #000000;
 }
-.greenLenda {
-    color: rgb(19, 50, 9);
+
+.anfibiosNome {
+    color: #000000;
 }
-/*Orange*/
-.orangeNome {
-    color: rgb(79, 16, 6);
+
+.anfibiosCusto {
+    color: #000000;
 }
-.orangeCusto {
-    color: rgb(255, 133, 67);
+
+.anfibiosLenda {
+    color: #000000;
 }
-.orangeLenda {
-    color: rgb(108, 37, 9);
+
+.olimpoNome {
+    color: #000000;
 }
-/*Yellow*/
-.yellowNome {
-    color: rgb(72, 33, 5);
+
+.olimpoCusto {
+    color: #000000;
 }
-.yellowCusto {
-    color: rgb(247, 222, 177);
+
+.olimpoLenda {
+    color: #000000;
 }
-.yellowLenda {
-    color: rgb(89, 33, 10);
+
+.firebirdsNome {
+    color: #000000;
 }
-/*Sem Clã*/
+
+.firebirdsCusto {
+    color: #000000;
+}
+
+.firebirdsLenda {
+    color: #000000;
+}
+
 .semNome {
-    color: rgb(58, 58, 58);
+    color: #000000;
 }
+
 .semCusto {
-    color: rgb(192, 192, 192);
+    color: #000000;
 }
+
 .semLenda {
-    color: rgb(58, 58, 58);
-}
-/*Red*/
-.redNome {
-    color: rgb(108, 20, 39);
-}
-.redCusto {
-    color: rgb(254, 211, 196);
-}
-.redLenda {
-    color: rgb(108, 20, 39);
-}
-/*Black*/
-.blackNome {
-    color: rgb(213, 58, 72);
-}
-.blackCusto {
-    color: rgb(255, 193, 107);
-}
-.blackLenda {
-    color: rgb(182, 16, 41);
-}
-/*Pink*/
-.pinkNome {
-    color: rgb(74, 21, 102);
-}
-.pinkCusto {
-    color: rgb(255, 214, 249);
-}
-.pinkLenda {
-    color: rgb(124, 25, 162);
-}
-/*Blue*/
-.blueNome {
-    color: rgb(8, 42, 69);
-}
-.blueCusto {
-    color: rgb(201, 232, 255);
-}
-.blueLenda {
-    color: rgb(23, 53, 122);
-}
-/*White*/
-.whiteNome {
-    color: rgb(62, 45, 106);
-}
-.whiteCusto {
-    color: rgb(237, 217, 251);
-}
-.whiteLenda {
-    color: rgb(72, 78, 121);
-}
-/*Cyan*/
-.cyanNome {
-    color: rgb(104, 45, 20);
-}
-.cyanCusto {
-    color: rgb(210, 243, 228);
-}
-.cyanLenda {
-    color: rgb(170, 87, 25);
-}
-/*Yellow2*/
-.teamyellowNome {
-    color: rgb(70, 23, 9);
-}
-.teamyellowCusto {
-    color: rgb(255, 237, 184);
-}
-.teamyellowLenda {
-    color: rgb(110, 49, 15);
-}
-/*Brown*/
-.brownNome {
-    color: rgb(100, 6, 21);
-}
-.brownCusto {
-    color: rgb(254, 211, 196);
-}
-.brownLenda {
-    color: rgb(131, 5, 6);
+    color: #000000;
 }
