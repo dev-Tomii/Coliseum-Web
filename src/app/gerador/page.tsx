@@ -111,7 +111,6 @@ export default function Gerador() {
                     src={src2}
                     alt="frame"
                 ></img>
-                <span className={"absolute enchanted text-3xl bottom-8 ml-6 " + colorB}>{rank}</span>
                 <span className={"absolute enchanted text-4xl bottom-2 text-center ml-4 " + colorB}>Custo: {custo}</span>
                 <p
                     className={
@@ -120,16 +119,6 @@ export default function Gerador() {
                     }
                 >
                     {name}
-                </p>
-                <p
-                    className={
-                        "absolute enchanted text-xl top-8 ml-6 text-left capitalize " +
-                        colorC
-                    }
-                >
-                    {lendas[lenda["currentKey"]] != undefined
-                        ? lendas[lenda["currentKey"]]["legend_name_key"]
-                        : ""}
                 </p>
                 <img
                     className="relative w-[358px] h-[470px] hq "
